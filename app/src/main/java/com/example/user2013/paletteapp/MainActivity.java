@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -85,30 +86,57 @@ public class MainActivity extends ActionBarActivity {
                         public void onGenerated(Palette palette) {
                             if  (palette != null) {
                                 // VibrantSwatch
-                                TextView vibrant_swatch = (TextView)findViewById(R.id.vibrant_swatch);
-                                vibrant_swatch.setBackgroundColor(palette.getVibrantSwatch().getRgb());
-                                vibrant_swatch.setTextColor(palette.getVibrantSwatch().getTitleTextColor());
+                                TextView vibrant_swatch = (TextView) findViewById(R.id.vibrant_swatch);
+                                try {
+                                    vibrant_swatch.setBackgroundColor(palette.getVibrantSwatch().getRgb());
+                                    vibrant_swatch.setTextColor(palette.getVibrantSwatch().getTitleTextColor());
+                                } catch (NullPointerException e){
+                                    vibrant_swatch.setBackgroundColor(Color.WHITE);
+                                    vibrant_swatch.setTextColor(Color.BLACK);
+                                }
 
-                                TextView dark_vibrant_swatch = (TextView)findViewById(R.id.dark_vibrant_swatch);
-                                // dark_vibrant_swatch.setBackgroundColor(palette.getDarkVibrantSwatch().getRgb());
-                                // vibrant_swatch.setTextColor(palette.getDarkVibrantSwatch().getTitleTextColor());
+                                TextView dark_vibrant_swatch = (TextView) findViewById(R.id.dark_vibrant_swatch);
+                                try {
+                                    dark_vibrant_swatch.setBackgroundColor(palette.getDarkVibrantSwatch().getRgb());
+                                    dark_vibrant_swatch.setTextColor(palette.getDarkVibrantSwatch().getTitleTextColor());
+                                } catch (NullPointerException e){
+                                    dark_vibrant_swatch.setBackgroundColor(Color.WHITE);
+                                    dark_vibrant_swatch.setTextColor(Color.BLACK);
+                                }
+                                TextView light_vibrant_swatch = (TextView) findViewById(R.id.light_vibrant_swatch);
+                                try {
+                                    light_vibrant_swatch.setBackgroundColor(palette.getLightVibrantSwatch().getRgb());
+                                    light_vibrant_swatch.setTextColor(palette.getLightVibrantSwatch().getTitleTextColor());
+                                } catch (NullPointerException e){
+                                    light_vibrant_swatch.setBackgroundColor(Color.WHITE);
+                                    light_vibrant_swatch.setTextColor(Color.BLACK);
+                                }
 
-                                TextView light_vibrant_swatch = (TextView)findViewById(R.id.light_vibrant_swatch);
-//                                light_vibrant_swatch.setBackgroundColor(palette.getLightVibrantSwatch().getRgb());
-//                                light_vibrant_swatch.setTextColor(palette.getLightVibrantSwatch().getTitleTextColor());
-
-                                //MutedSwatch
-                                TextView muted_swatch = (TextView)findViewById(R.id.muted_swatch);
-//                                muted_swatch.setBackgroundColor(palette.getMutedSwatch().getRgb());
-//                                muted_swatch.setTextColor(palette.getMutedSwatch().getTitleTextColor());
-
-                                TextView dark_muted_swatch = (TextView)findViewById(R.id.dark_muted_swatch);
-//                                dark_muted_swatch.setBackgroundColor(palette.getDarkMutedSwatch().getRgb());
-//                                dark_muted_swatch.setTextColor(palette.getDarkMutedSwatch().getTitleTextColor());
-
-                                TextView light_muted_swatch = (TextView)findViewById(R.id.light_muted_swatch);
-//                                light_muted_swatch.setBackgroundColor(palette.getLightMutedSwatch().getRgb());
-//                                light_muted_swatch.setTextColor(palette.getLightMutedSwatch().getTitleTextColor());
+                                    //MutedSwatch
+                                TextView muted_swatch = (TextView) findViewById(R.id.muted_swatch);
+                                try {
+                                    muted_swatch.setBackgroundColor(palette.getMutedSwatch().getRgb());
+                                    muted_swatch.setTextColor(palette.getMutedSwatch().getTitleTextColor());
+                                } catch (NullPointerException e){
+                                    muted_swatch.setBackgroundColor(Color.WHITE);
+                                    muted_swatch.setTextColor(Color.BLACK);
+                                }
+                                TextView dark_muted_swatch = (TextView) findViewById(R.id.dark_muted_swatch);
+                                try {
+                                    dark_muted_swatch.setBackgroundColor(palette.getDarkMutedSwatch().getRgb());
+                                    dark_muted_swatch.setTextColor(palette.getDarkMutedSwatch().getTitleTextColor());
+                                } catch (NullPointerException e){
+                                    dark_muted_swatch.setBackgroundColor(Color.WHITE);
+                                    dark_muted_swatch.setTextColor(Color.BLACK);
+                                }
+                                TextView light_muted_swatch = (TextView) findViewById(R.id.light_muted_swatch);
+                                try {
+                                    light_muted_swatch.setBackgroundColor(palette.getLightMutedSwatch().getRgb());
+                                    light_muted_swatch.setTextColor(palette.getLightMutedSwatch().getTitleTextColor());
+                                } catch (NullPointerException e){
+                                    light_muted_swatch.setBackgroundColor(Color.WHITE);
+                                    light_muted_swatch.setTextColor(Color.BLACK);
+                                }
                             }
                         }
                     });
